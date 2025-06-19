@@ -41,6 +41,15 @@ object Build : BuildType({
 
     steps {
         maven {
+            name = "Maven2_1"
+            id = "Maven2_1"
+
+            conditions {
+                doesNotContain("teamcity.build.branch", "master")
+            }
+            goals = "clean test"
+        }
+        maven {
             id = "Maven2"
 
             conditions {
@@ -49,15 +58,6 @@ object Build : BuildType({
             goals = "clean deploy"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
             userSettingsSelection = "settings.xml"
-        }
-        maven {
-            name = "Maven2_1"
-            id = "Maven2_1"
-
-            conditions {
-                doesNotContain("teamcity.build.branch", "master")
-            }
-            goals = "clean test"
         }
     }
 
