@@ -50,6 +50,7 @@ object Build : BuildType({
             goals = "clean test"
         }
         maven {
+            name = "Maven deploy"
             id = "Maven2"
 
             conditions {
