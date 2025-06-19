@@ -41,7 +41,7 @@ object Build : BuildType({
 
     steps {
         maven {
-            name = "Maven2_1"
+            name = "Maven test"
             id = "Maven2_1"
 
             conditions {
